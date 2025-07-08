@@ -1,0 +1,199 @@
+; Installation INF for the Cypress Generic USB Driver for %OPERATING_SYSTEM%
+; Processor support for %PLATFORM% platforms.
+;
+; (c) Copyright 2012, 2013 Cypress Semiconductor Corporation
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+provider=%HSSI_Provider%
+CatalogFile=hssi.cat
+DriverPackageDisplayName=%PackageDisplayName%
+DriverVer=12/02/2020,1.11.0.0
+
+[SourceDisksNames]
+1=%HSSI_Install%,,,
+
+[SourceDisksFiles]
+CYUSB3.sys = 1
+
+[DestinationDirs]
+HSSI.Files.Ext = 10,System32\Drivers
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%HSSI_Provider%=Device,NT,NTx86,NTamd64
+
+;for all platforms
+[Device.NT]
+;%VID_XXXX&PID_XXXX.DeviceDesc%=hssi, USB\VID_XXXX&PID_XXXX
+;%VID_0456&PID_ED10.DeviceDesc%=hssi, USB\VID_0456&PID_ED10
+;%VID_0456&PID_B663.DeviceDesc%=hssi, USB\VID_0456&PID_B663
+%VID_0456&PID_B62E&MI_00.DeviceDesc%=hssi, USB\VID_0456&PID_B62E&MI_00
+%VID_0456&PID_B62F&MI_00.DeviceDesc%=hssi, USB\VID_0456&PID_B62F&MI_00
+%VID_0456&PID_B651&MI_00.DeviceDesc%=hssi, USB\VID_0456&PID_B651&MI_00
+;%VID_0456&PID_ED11.DeviceDesc%=hssi, USB\VID_0456&PID_ED11
+%VID_0456&PID_ED13.DeviceDesc%=adifx3, USB\VID_0456&PID_ED13
+%VID_0456&PID_B625&MI_00.DeviceDesc%=hssi, USB\VID_0456&PID_B625&MI_00
+%VID_0456&PID_B666&MI_00.DeviceDesc%=hssi, USB\VID_0456&PID_B666&MI_00
+%VID_0456&PID_B66B&MI_00.DeviceDesc%=hssi, USB\VID_0456&PID_B66B&MI_00
+%VID_0456&PID_B669.DeviceDesc%=hssi, USB\VID_0456&PID_B669
+
+;for x86 platforms
+[Device.NTx86]
+;%VID_XXXX&PID_XXXX.DeviceDesc%=hssi, USB\VID_XXXX&PID_XXXX
+;%VID_0456&PID_ED10.DeviceDesc%=hssi, USB\VID_0456&PID_ED10
+;%VID_0456&PID_B663.DeviceDesc%=hssi, USB\VID_0456&PID_B663
+%VID_0456&PID_B62E&MI_00.DeviceDesc%=hssi, USB\VID_0456&PID_B62E&MI_00
+%VID_0456&PID_B62F&MI_00.DeviceDesc%=hssi, USB\VID_0456&PID_B62F&MI_00
+%VID_0456&PID_B651&MI_00.DeviceDesc%=hssi, USB\VID_0456&PID_B651&MI_00
+;%VID_0456&PID_ED11.DeviceDesc%=hssi, USB\VID_0456&PID_ED11
+%VID_0456&PID_ED13.DeviceDesc%=adifx3, USB\VID_0456&PID_ED13
+%VID_0456&PID_B625&MI_00.DeviceDesc%=hssi, USB\VID_0456&PID_B625&MI_00
+%VID_0456&PID_B666&MI_00.DeviceDesc%=hssi, USB\VID_0456&PID_B666&MI_00
+%VID_0456&PID_B66B&MI_00.DeviceDesc%=hssi, USB\VID_0456&PID_B66B&MI_00
+%VID_0456&PID_B669.DeviceDesc%=hssi, USB\VID_0456&PID_B669
+
+;for x64 platforms
+[Device.NTamd64]
+;%VID_XXXX&PID_XXXX.DeviceDesc%=hssi, USB\VID_XXXX&PID_XXXX
+;%VID_0456&PID_ED10.DeviceDesc%=hssi, USB\VID_0456&PID_ED10
+;%VID_0456&PID_B663.DeviceDesc%=hssi, USB\VID_0456&PID_B663
+%VID_0456&PID_B62E&MI_00.DeviceDesc%=hssi, USB\VID_0456&PID_B62E&MI_00
+%VID_0456&PID_B62F&MI_00.DeviceDesc%=hssi, USB\VID_0456&PID_B62F&MI_00
+%VID_0456&PID_B651&MI_00.DeviceDesc%=hssi, USB\VID_0456&PID_B651&MI_00
+;%VID_0456&PID_ED11.DeviceDesc%=hssi, USB\VID_0456&PID_ED11
+%VID_0456&PID_ED13.DeviceDesc%=adifx3, USB\VID_0456&PID_ED13
+%VID_0456&PID_B625&MI_00.DeviceDesc%=hssi, USB\VID_0456&PID_B625&MI_00
+%VID_0456&PID_B666&MI_00.DeviceDesc%=hssi, USB\VID_0456&PID_B666&MI_00
+%VID_0456&PID_B66B&MI_00.DeviceDesc%=hssi, USB\VID_0456&PID_B66B&MI_00
+%VID_0456&PID_B669.DeviceDesc%=hssi, USB\VID_0456&PID_B669
+
+[HSSI]
+CopyFiles=HSSI.Files.Ext
+AddReg=hssi.AddReg
+
+[HSSI.HW]
+AddReg=HSSI.AddReg.Guid
+
+[HSSI.Services]
+Addservice = HSSI,2,HSSI.AddService
+
+[HSSI.NT]
+CopyFiles=HSSI.Files.Ext
+AddReg=hssi.AddReg
+
+[HSSI.NT.HW]
+AddReg=HSSI.AddReg.Guid
+
+[HSSI.NT.Services]
+Addservice = HSSI,2,HSSI.AddService
+
+
+[HSSI.NTx86]
+CopyFiles=HSSI.Files.Ext
+AddReg=hssi.AddReg
+
+[HSSI.NTx86.HW]
+AddReg=HSSI.AddReg.Guid
+
+[HSSI.NTx86.Services]
+Addservice = HSSI,2,HSSI.AddService
+
+[HSSI.NTamd64]
+CopyFiles=HSSI.Files.Ext
+AddReg=hssi.AddReg
+
+[HSSI.NTamd64.HW]
+AddReg=HSSI.AddReg.Guid
+
+[HSSI.NTamd64.Services]
+Addservice = HSSI,2,HSSI.AddService
+
+
+[HSSI.AddReg]
+; Deprecating - do not use in new apps to identify a HSSI driver
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,CYUSB3.sys
+; You may optionally include a check for DriverBase in your application to check for a HSSI driver
+HKR,,DriverBase,,CYUSB3.sys
+HKR,"Parameters","MaximumTransferSize",0x10001,4096
+HKR,"Parameters","DebugLevel",0x10001,2
+HKR,,FriendlyName,,%HSSI_Description%
+
+[HSSI.AddService]
+DisplayName    = %HSSI_Description%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\CYUSB3.sys
+AddReg         = HSSI.AddReg
+LoadOrderGroup = Base
+
+[HSSI.Files.Ext]
+CYUSB3.sys
+
+[HSSI.AddReg.Guid]
+HKR,,DriverGUID,,%HSSI.GUID%
+;HKR,,DriverPowerPolicySetup,,%ENABLE_DRIVER_POWER_POLICY%
+
+;-------------- WDF Coinstaller installation
+[SourceDisksFiles]
+WdfCoInstaller01011.dll=1 ; make sure the number matches with SourceDisksNames
+
+[DestinationDirs]
+CoInstaller_CopyFiles = 11
+
+[CYUSB3.NTamd64.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[CYUSB3.NTx86.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[CoInstaller_CopyFiles]
+WdfCoInstaller01011.dll
+
+[CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01011.dll,WdfCoInstaller"
+
+[CYUSB3.NTamd64.Wdf]
+KmdfService = CYUSB3, CYUSB3_wdfsect
+
+[CYUSB3.NTx86.Wdf]
+KmdfService = CYUSB3, CYUSB3_wdfsect
+
+[CYUSB3_wdfsect]
+KmdfLibraryVersion = 1.11
+
+
+[Strings]
+HSSI_Provider    = "ADI"
+HSSI_Company     = "Analog Devices Inc"
+HSSI_Description = "High Speed Serial Interface Driver"
+HSSI_DisplayName = "High Speed Serial Interface"
+HSSI_Install     = "High Speed Serial Interface Driver Installation Disk"
+PackageDisplayName = "High Speed Serial Interface Driver"
+
+;VID_0456&PID_ED10.DeviceDesc="Analog Devices HSSI-ATE"
+;VID_0456&PID_B663.DeviceDesc="Analog Devices ADS8-V1"
+VID_0456&PID_B62E&MI_00.DeviceDesc="Analog Devices ADS8-V2 (HSSI)"
+VID_0456&PID_B62F&MI_00.DeviceDesc="Analog Devices ADS9-V1 (HSSI)"
+VID_0456&PID_B651&MI_00.DeviceDesc="Analog Devices ADS8-V1 (HSSI)"
+VID_0456&PID_B666&MI_00.DeviceDesc="Analog Devices ADS9-V2 (HSSI)"
+VID_0456&PID_B66B&MI_00.DeviceDesc="Analog Devices ADS8-V3 (HSSI)"
+VID_0456&PID_ED13.DeviceDesc="Analog Devices Software FX3 BootLoader"
+;VID_0456&PID_ED11.DeviceDesc="Analog Devices USB3-SPI"
+VID_0456&PID_B669.DeviceDesc="Analog Devices ADS10-V1 (HSSI)"
+
+;For Test Purposes Only - No Devices should be shipped with this PID unless Cypress Controller
+VID_0456&PID_B625&MI_00.DeviceDesc="Analog Devices System Demonstration Platform (HSSI)"
+
+HSSI.GUID="{AE18AA60-7F6A-11d4-97DD-00010229B959}"
+;ENABLE_DRIVER_POWER_POLICY="1"
+HSSI_Unused      = "."

@@ -1,0 +1,211 @@
+;/*++
+;
+;Copyright (c) 2010 - Analog Devices Inc. - All rights reserved.
+;
+;   THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+;   KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+;   IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
+;   PURPOSE.
+;
+;Module Name:
+;
+;    AdiSdp_x64.INF
+;
+;Abstract:
+;    Installation inf for the Analog Devices System Development Platform
+;
+;--*/
+
+; ======================================================
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=%ClassName%
+ClassGuid={89982A59-5EEA-45aa-AF97-52EC351018C2}
+Provider=%ADI%
+DriverPackageDisplayName=%PackageDisplayName%
+DriverVer=12/02/2020,2.14.0.0
+CatalogFile=AdiSdp_x64.cat
+
+; =================== Class section ====================
+
+[ClassInstall32]
+Addreg=ClassAddReg     
+
+[ClassAddReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-5
+
+; ============ Manufacturer/Models Section =============
+
+[Manufacturer]
+%MfgName%=AnalogDevices,NTamd64
+
+[AnalogDevices.NTamd64]
+;DigiMMIC
+%USB\VID_0456&PID_B440.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B440
+
+;%USB\VID_0456&PID_B625.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B625
+%USB\VID_0456&PID_B625&MI_01.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B625&MI_01
+%USB\VID_0456&PID_B626.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B626
+%USB\VID_0456&PID_B627.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B627
+%USB\VID_0456&PID_B629.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B629
+%USB\VID_0456&PID_B62A.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B62A
+%USB\VID_0456&PID_B62B.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B62B
+
+; ADS7-V1, ADS7-V2, ADS8-V2, ADS9-V1
+%USB\VID_0456&PID_B62C.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B62C
+%USB\VID_0456&PID_B62D.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B62D
+%USB\VID_0456&PID_B62E&MI_01.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B62E&MI_01
+%USB\VID_0456&PID_B62F&MI_01.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B62F&MI_01
+
+; SDP-B
+%USB\VID_0456&PID_B630.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B630
+%USB\VID_0456&PID_B640.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B640
+%USB\VID_0456&PID_B641.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B641
+
+; SDP-B (64MB)
+%USB\VID_0456&PID_B650.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B650
+; ADS8-V1 (Composite)
+%USB\VID_0456&PID_B651&MI_01.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B651&MI_01
+
+; SDP-S/CABLEZ
+%USB\VID_0456&PID_B660.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B660
+%USB\VID_0456&PID_B660&MI_00.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B660&MI_00
+%USB\VID_0456&PID_B660&MI_01.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B660&MI_01
+%USB\VID_0456&PID_B661.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B661
+%USB\VID_0456&PID_B661&MI_00.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B661&MI_00
+%USB\VID_0456&PID_B661&MI_01.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B661&MI_01
+
+%USB\VID_0456&PID_B662.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B662
+; ADS8-V1 (Original)
+%USB\VID_0456&PID_B663.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B663
+; CABLE2Z
+%USB\VID_0456&PID_B664.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B664
+
+; ADS9-V2
+%USB\VID_0456&PID_B666&MI_01.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B666&MI_01
+; Apollo
+%USB\VID_0456&PID_B667.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B667
+;SDP-K1
+%USB\VID_0456&PID_B668.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B668
+;ADS10-V1
+;%USB\VID_0456&PID_B669.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B669
+;ADS8-V3
+%USB\VID_0456&PID_B66B&MI_01.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B66B&MI_01
+
+; Cortex M
+%USB\VID_0456&PID_B680.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B680
+%USB\VID_0456&PID_B681.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_B681
+
+; ==================== Installation ====================
+
+[AdiSdp.Dev]
+Include=winusb.inf
+Needs=WINUSB.NT
+
+[AdiSdp.Dev.Services]
+Include=winusb.inf
+AddService=WinUSB,0x00000002,WinUSB_ServiceInstall
+
+[WinUsb_ServiceInstall]
+DisplayName     = %WinUsb_SvcDesc%
+ServiceType     = 1
+StartType       = 3
+ErrorControl    = 1
+ServiceBinary   = %12%\WinUSB.sys
+
+[AdiSdp.Dev.Wdf]
+KmdfService=WINUSB, WinUsb_Install
+
+[WinUSB_Install]
+KmdfLibraryVersion=1.9
+
+[AdiSdp.Dev.HW]
+AddReg=Dev_AddReg
+
+[Dev_AddReg]
+HKR,,DeviceInterfaceGUIDs,0x10000,"{7EE362C2-A453-4976-A14A-0C6A801AD21C}"
+
+[AdiSdp.Dev.CoInstallers]
+AddReg=CoInstallers_AddReg
+CopyFiles=CoInstallers_CopyFiles
+
+[CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"WdfCoInstaller01009.dll,WdfCoInstaller","WinUsbCoInstaller2.dll"
+
+[CoInstallers_CopyFiles]
+WinUsbCoInstaller2.dll
+WdfCoInstaller01009.dll
+
+[DestinationDirs]
+CoInstallers_CopyFiles=11
+
+; ================ Source Media Section ================
+
+[SourceDisksNames]
+1 = %DISK_NAME%,,,
+
+[SourceDisksFiles.amd64]
+WinUsbCoInstaller2.dll=1
+WdfCoInstaller01009.dll=1
+
+; ====================== Strings =======================
+
+[Strings]
+ADI                = "Analog Devices, Inc."
+MfgName            = "Analog Devices, Inc."
+DISK_NAME          = "AdiSdp Installation Disk"
+WinUSB_SvcDesc     = "WinUSB for SDP"
+ClassName          = "ADI Development Tools"
+PackageDisplayName = "SDP/ADS USB Drivers"
+
+USB\VID_0456&PID_B440.DeviceDesc="DigiMMIC Development Platform"
+
+;USB\VID_0456&PID_B625.DeviceDesc="Analog Devices System Demonstration Platform"
+USB\VID_0456&PID_B625&MI_01.DeviceDesc="Analog Devices System Demonstration Platform (CSA)"
+USB\VID_0456&PID_B626.DeviceDesc="Analog Devices Custom SDP"
+USB\VID_0456&PID_B627.DeviceDesc="Analog Devices iSensor Evaluation Board"
+USB\VID_0456&PID_B629.DeviceDesc="Analog Devices HADV6"
+USB\VID_0456&PID_B62A.DeviceDesc="Analog Devices HADV6-FMC"
+USB\VID_0456&PID_B62B.DeviceDesc="Analog Devices SDP-H1"
+
+USB\VID_0456&PID_B62C.DeviceDesc="Analog Devices ADS7-V1"
+USB\VID_0456&PID_B62D.DeviceDesc="Analog Devices ADS7-V2"
+USB\VID_0456&PID_B62E&MI_01.DeviceDesc="Analog Devices ADS8-V2 (CSA)"
+USB\VID_0456&PID_B62F&MI_01.DeviceDesc="Analog Devices ADS9-V1 (CSA)"
+
+USB\VID_0456&PID_B630.DeviceDesc="Analog Devices System Demonstration Platform SDP-B"
+USB\VID_0456&PID_B640.DeviceDesc="Analog Devices uSDP"
+USB\VID_0456&PID_B641.DeviceDesc="Analog Devices USB1.1 Embedded SDP"
+USB\VID_0456&PID_B650.DeviceDesc="Analog Devices System Demonstration Platform (64MB)"
+
+USB\VID_0456&PID_B651&MI_01.DeviceDesc="Analog Devices ADS8-V1 (CSA)"
+
+USB\VID_0456&PID_B660.DeviceDesc="Analog Devices System Demonstration Platform SDP-S"
+USB\VID_0456&PID_B660&MI_00.DeviceDesc="Analog Devices System Demonstration Platform SDP-S"
+USB\VID_0456&PID_B660&MI_01.DeviceDesc="Analog Devices System Demonstration Platform SDP-S"
+USB\VID_0456&PID_B661.DeviceDesc="USB-SDP-CABLEZ"
+USB\VID_0456&PID_B661&MI_00.DeviceDesc="USB-SDP-CABLEZ"
+USB\VID_0456&PID_B661&MI_01.DeviceDesc="USB-SDP-CABLEZ"
+
+USB\VID_0456&PID_B662.DeviceDesc="High Speed Converter USB3.0 Evaluation Platform"
+USB\VID_0456&PID_B663.DeviceDesc="Analog Devices ADS8-V1"
+
+USB\VID_0456&PID_B664.DeviceDesc="Analog Devices USB-CABLE2Z"
+USB\VID_0456&PID_B666&MI_01.DeviceDesc="Analog Devices ADS9-V2 (CSA)"
+USB\VID_0456&PID_B667.DeviceDesc="Analog Devices Apollo (CSA)"
+USB\VID_0456&PID_B668.DeviceDesc="Analog Devices System Demonstration Platform SDP-K1"
+;USB\VID_0456&PID_B669.DeviceDesc="Analog Devices ADS10-V1 (CSA)"
+USB\VID_0456&PID_B66B&MI_01.DeviceDesc="Analog Devices ADS8-V3 (CSA)"
+;B66A SDP-K1 Programmer
+
+USB\VID_0456&PID_B680.DeviceDesc="Analog Devices ADuCM350 Measurement System"
+USB\VID_0456&PID_B681.DeviceDesc="Analog Devices ADSP-CM40x USB Device"
+
+; ======================================================
+
+
+
+
+

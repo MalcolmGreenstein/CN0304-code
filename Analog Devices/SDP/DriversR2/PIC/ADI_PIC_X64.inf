@@ -1,0 +1,124 @@
+;/*++
+;
+;Copyright (c) 2019 - Analog Devices Inc. - All rights reserved.
+;
+;   THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+;   KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+;   IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
+;   PURPOSE.
+;
+;Module Name:
+;
+;    ADI_PIC_X64.INF
+;
+;Abstract:
+;    Installation inf for the Analog Devices Evaluation Boards equipped with a PIC controller
+;
+;--*/
+
+; ======================================================
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=%ClassName%
+ClassGuid={89982A59-5EEA-45aa-AF97-52EC351018C2}
+Provider=%ADI%
+DriverPackageDisplayName=%driver-package-description%
+DriverVer=09/05/2019,1.0.0.0
+CatalogFile=ADI_PIC_X64.cat
+
+; =================== Class section ====================
+
+[ClassInstall32]
+Addreg=ClassAddReg     
+
+[ClassAddReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-20
+
+; ============ Manufacturer/Models Section =============
+
+[Manufacturer]
+%MfgName%=AnalogDevices,NTamd64
+
+[AnalogDevices.NTamd64]
+; HSDAC USB Eval Boards (PIC)
+%USB\VID_0456&PID_7024.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_7024
+%USB\VID_0456&PID_7028&MI_00.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_7028&MI_00
+%USB\VID_0456&PID_7028&MI_01.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_7028&MI_01
+%USB\VID_0456&PID_7029.DeviceDesc%=AdiSdp.Dev, USB\VID_0456&PID_7029
+
+; ==================== Installation ====================
+
+[AdiSdp.Dev]
+Include=winusb.inf
+Needs=WINUSB.NT
+
+[AdiSdp.Dev.Services]
+Include=winusb.inf
+AddService=WinUSB,0x00000002,WinUSB_ServiceInstall
+
+[WinUSB_ServiceInstall]
+DisplayName     = %WinUSB_SvcDesc%
+ServiceType     = 1
+StartType       = 3
+ErrorControl    = 1
+ServiceBinary   = %12%\WinUSB.sys
+
+[AdiSdp.Dev.Wdf]
+KmdfService=WINUSB, WinUsb_Install
+
+[WinUSB_Install]
+KmdfLibraryVersion=1.9
+
+[AdiSdp.Dev.HW]
+AddReg=Dev_AddReg
+
+[Dev_AddReg]
+HKR,,DeviceInterfaceGUIDs,0x10000,"{6CB2C9B8-82F8-4B5D-9A89-73F92BF3A751}"
+
+[AdiSdp.Dev.CoInstallers]
+AddReg=CoInstallers_AddReg
+CopyFiles=CoInstallers_CopyFiles
+
+[CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"WdfCoInstaller01009.dll,WdfCoInstaller","WinUSBCoInstaller2.dll"
+
+[CoInstallers_CopyFiles]
+WinUSBCoInstaller2.dll
+WdfCoInstaller01009.dll
+
+[DestinationDirs]
+CoInstallers_CopyFiles=11
+
+; ================ Source Media Section ================
+
+[SourceDisksNames]
+1 = %DISK_NAME%,,,
+
+[SourceDisksFiles.amd64]
+WinUSBCoInstaller2.dll=1
+WdfCoInstaller01009.dll=1
+
+; ====================== Strings =======================
+
+[Strings]
+ADI             = "Analog Devices, Inc."
+MfgName         = "Analog Devices, Inc."
+driver-package-description="ADI PIC equipped Eval Boards USB Drivers"
+DISK_NAME       = "DAC Software Suite"
+WinUSB_SvcDesc  = "WinUSB for ADI PIC equipped Eval Boards"
+ClassName       = "ADI Development Tools"
+Copyright				= "Copyright (C) 2019 Analog Devices, Inc."
+
+; HSDAC USB Eval Boards (PIC)
+USB\VID_0456&PID_7024.DeviceDesc="High-Speed DAC USB Evaluation Board"
+USB\VID_0456&PID_7028&MI_00.DeviceDesc="High-Speed DAC USB Evaluation Board Port A"
+USB\VID_0456&PID_7028&MI_01.DeviceDesc="High-Speed DAC USB Evaluation Board Port B"
+USB\VID_0456&PID_7029.DeviceDesc="High-Speed DAC USB Evaluation Board (v2)"
+; ======================================================
+
+
+
+
+
